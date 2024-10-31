@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Responder Pregunta de Seguridad";
+}
+
+<h2>Responder Pregunta de Seguridad</h2>
+
+<form action='@Url.ActionLink("ResponderPreguntaSeguridad", "Account")' method="post">
+    <p>@ViewBag.PreguntaSeguridad</p>
+    
+    <input type="hidden" name="inicio" value="@ViewBag.Inicio" />
+
+    <label>Respuesta:</label>
+    <input type="text" name="respuestaSeguridad" required />
+
+    <label>Nueva Contraseña:</label>
+    <input type="password" name="nuevaContraseña" required />
+
+    <button type="submit">Restablecer Contraseña</button>
+</form>
+
+@if (ViewBag.MensajeError != null)
+{
+    <p>@ViewBag.MensajeError</p>
+}

@@ -50,7 +50,7 @@ public class Account : Controller
         if (resultado == 1)
         {
             ViewBag.MensajeExito = "Inicio de sesión exitoso.";
-            return RedirectToAction("Index", "HomeController");
+            return RedirectToAction("Inicio", "HomeController");
         }
         else
         {

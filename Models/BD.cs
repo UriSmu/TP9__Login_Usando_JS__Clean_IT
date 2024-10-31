@@ -6,7 +6,7 @@ namespace TP9__Login_Usando_JS__Clean_IT.Models;
 
 static public class BD
 {
-    private static string _connectionString = @"Server=localhost; DataBase=Clean_IT; Trusted_Connection=True;";
+    private static string _connectionString = @"Server=localhost; DataBase=Clean IT; Trusted_Connection=True;";
 
     public static int InsertarUsuario(string usuario, string nombre, string apellido, string email, string telefono, string documento, string contraseña)
     {

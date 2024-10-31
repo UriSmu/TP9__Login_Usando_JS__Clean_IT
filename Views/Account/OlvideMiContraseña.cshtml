@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "Recuperar Contraseña";
+}
+
+<h2>Recuperar Contraseña</h2>
+
+<form action='@Url.ActionLink("OlvideMiContraseña", "Account")' method="post">
+    <label>Nombre de usuario o Email:</label>
+    <input type="text" name="inicio" required />
+
+    <button type="submit">Enviar</button>
+</form>
+
+@if (ViewBag.MensajeError != null)
+{
+    <p>@ViewBag.MensajeError</p>
+}

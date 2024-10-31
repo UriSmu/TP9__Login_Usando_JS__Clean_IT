@@ -1,0 +1,47 @@
+@{
+    ViewData["Title"] = "Registro de Usuario";
+}
+
+<h2>Registro de Usuario</h2>
+
+<form action='@Url.ActionLink("Registrar", "Account")' method="post" id="registroForm">
+    <label>Nombre de usuario:</label>
+    <input type="text" name="username" required />
+
+    <label>Nombre:</label>
+    <input type="text" name="nombre" required />
+
+    <label>Apellido:</label>
+    <input type="text" name="apellido" required />
+
+    <label>Email:</label>
+    <input type="email" name="email" required />
+
+    <label>Teléfono:</label>
+    <input type="text" name="telefono" required />
+
+    <label>Documento:</label>
+    <input type="text" name="documento" required />
+
+    <label>Contraseña:</label>
+    <input type="password" name="contraseña" id="contraseña" required />
+
+    <label>Confirmar Contraseña:</label>
+    <input type="password" name="confirmarContraseña" id="confirmarContraseña" required />
+
+    <button type="submit">Registrar</button>
+</form>
+
+
+@if (ViewBag.MensajeExito != null)
+{
+    <p>@ViewBag.MensajeExito</p>
+}
+
+@if (ViewBag.MensajeError != null)
+{
+    <p>@ViewBag.MensajeError</p>
+}
+
+
+<script src="~/js/site.js"></script>
