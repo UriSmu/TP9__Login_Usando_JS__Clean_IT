@@ -2,22 +2,24 @@
     ViewData["Title"] = "Iniciar Sesion";
 }
 
-<h2>Iniciar Sesión</h2>
+<div class="auth-container">
+    <h2>Iniciar Sesión</h2>
 
-<form action='@Url.ActionLink("IniciarSesion", "Account")' method="post">
-    <label>Nombre de usuario o Email:</label>
-    <input type="text" name="inicio" required />
+    <form action='@Url.ActionLink("IniciarSesion", "Account")' method="post">
+        <label for="inicio">Nombre de usuario o Email:</label>
+        <input type="text" id="inicio" name="inicio" class="input-field" required />
 
-    <label>Contraseña:</label>
-    <input type="password" name="contraseña" required />
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" id="contraseña" name="contraseña" class="input-field" required />
 
-    <button type="submit">Iniciar Sesión</button>
-    <p>
-        <a href='@Url.ActionLink("OlvideMiContraseña", "Account")' class="olvide-contraseña">Olvidé mi contraseña</a>
-    </p>
-</form>
+        <button type="submit" class="btn-primary">Iniciar Sesión</button>
+        <p>
+            <a href='@Url.ActionLink("OlvideMiContraseña", "Account")' class="olvide-contraseña">Olvidé mi contraseña</a>
+        </p>
+    </form>
 
-@if (ViewBag.MensajeError != null)
-{
-    <p>@ViewBag.MensajeError</p>
-}
+    @if (ViewBag.MensajeError != null)
+    {
+        <p class="error-message">@ViewBag.MensajeError</p>
+    }
+</div>

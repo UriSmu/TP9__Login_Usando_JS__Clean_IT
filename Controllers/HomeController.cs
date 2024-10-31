@@ -17,4 +17,11 @@ public class HomeController : Controller
     {
         return View();
     }
+
+    public IActionResult Inicio(string inicio, string pass)
+    {
+        Usuarios user = BD.ObtenerDatosUsuario(inicio);
+
+        return View(user);
+    }
 }

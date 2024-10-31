@@ -2,23 +2,25 @@
     ViewData["Title"] = "Responder Pregunta de Seguridad";
 }
 
-<h2>Responder Pregunta de Seguridad</h2>
+<div class="auth-container">
+    <h2>Responder Pregunta de Seguridad</h2>
 
-<form action='@Url.ActionLink("ResponderPreguntaSeguridad", "Account")' method="post">
-    <p>@ViewBag.PreguntaSeguridad</p>
-    
-    <input type="hidden" name="inicio" value="@ViewBag.Inicio" />
+    <form action='@Url.ActionLink("ResponderPreguntaSeguridad", "Account")' method="post">
+        <p class="security-question">@ViewBag.PreguntaSeguridad</p>
+        
+        <input type="hidden" name="inicio" value="@ViewBag.Inicio" />
 
-    <label>Respuesta:</label>
-    <input type="text" name="respuestaSeguridad" required />
+        <label for="respuestaSeguridad">Respuesta:</label>
+        <input type="text" id="respuestaSeguridad" name="respuestaSeguridad" class="input-field" required />
 
-    <label>Nueva Contraseña:</label>
-    <input type="password" name="nuevaContraseña" required />
+        <label for="nuevaContraseña">Nueva Contraseña:</label>
+        <input type="password" id="nuevaContraseña" name="nuevaContraseña" class="input-field" required />
 
-    <button type="submit">Restablecer Contraseña</button>
-</form>
+        <button type="submit" class="btn-primary">Restablecer Contraseña</button>
+    </form>
 
-@if (ViewBag.MensajeError != null)
-{
-    <p>@ViewBag.MensajeError</p>
-}
+    @if (ViewBag.MensajeError != null)
+    {
+        <p class="error-message">@ViewBag.MensajeError</p>
+    }
+</div>

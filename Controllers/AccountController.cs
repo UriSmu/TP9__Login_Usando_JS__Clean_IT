@@ -13,16 +13,19 @@ public class Account : Controller
         _logger = logger;
     }
 
+
     [HttpGet]
     public IActionResult Registrar()
     {
+        List<PreguntaSeguridad> preguntas = BD.ObtenerPreguntasDeSeguridad();
+        ViewBag.PreguntasSeguridad = preguntas;
         return View();
     }
 
     [HttpPost]
-    public IActionResult Registrar(string username, string nombre, string apellido, string email, string telefono, string documento, string contraseña)
+    public IActionResult Registrar(string username, string nombre, string apellido, string email, string telefono, string documento, string contraseña, int idPregunta, string respuestaSeguridad)
     {
-        int resultado = BD.InsertarUsuario(username, nombre, apellido, email, telefono, documento, contraseña);
+        int resultado = BD.InsertarUsuario(username, nombre, apellido, email, telefono, documento, contraseña, idPregunta, respuestaSeguridad);
 
         if (resultado == 1)
         {
@@ -32,6 +35,8 @@ public class Account : Controller
         else
         {
             ViewBag.MensajeError = "El correo electrónico ya está registrado.";
+            List<PreguntaSeguridad> preguntas = BD.ObtenerPreguntasDeSeguridad();
+            ViewBag.PreguntasSeguridad = preguntas;
             return View();
         }
     }
@@ -49,8 +54,7 @@ public class Account : Controller
 
         if (resultado == 1)
         {
-            ViewBag.MensajeExito = "Inicio de sesión exitoso.";
-            return RedirectToAction("Inicio", "HomeController");
+            return RedirectToAction("Inicio", "Home", new {inicio = inicio,  pass = contraseña});
         }
         else
         {
